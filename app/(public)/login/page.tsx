@@ -1,20 +1,11 @@
-'use client'
-import { useRouter } from 'next/navigation'
+import LoginClient from "./components/LoginClient"
 
-export default function Login() {
-  const router = useRouter()
+export const metadata = {
+  title: 'Login',
+  description: 'Secure login portal',
+}
 
-  async function handleLogin() {
-    await fetch('/api/auth/login', {
-      method: 'POST',
-      body: JSON.stringify({
-        email: 'admin@test.com',
-        password: '123456'
-      })
-    })
 
-    router.push('/dashboard')
-  }
-
-  return <button onClick={handleLogin}>Login</button>
+export default function Page() {
+  return <LoginClient />
 }
